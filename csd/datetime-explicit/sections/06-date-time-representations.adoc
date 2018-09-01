@@ -1,0 +1,314 @@
+
+[[representations]]
+== Date and time representations
+
+=== General
+
+This section provides date and time representations using explicit form.
+
+[[representations-omission]]
+==== Omission of time scale components
+
+Rules specified in <<value-restriction>> applies to all representations
+described in this clause.
+
+If a time scale component of a higher order (compared to the lowest
+order component specified in the representation) is omitted, it is
+assumed to have the value "0" as long as the time scale component
+accepts the value "0".
+
+[[representations-precision]]
+==== Indication of precision
+
+The lowest denoted time scale component in a date and time representation
+indicates the precision level of the representation.
+
+[example]
+'1985Y4M' has calendar month precision.
+
+[example]
+'1985Y4M12DT2H' has clock hour precision.
+
+[example]
+'1985Y4M12DT30M' has clock minute precision, where the clock hour time
+scale component is a zero-valued omission.
+
+[[date-rep]]
+=== Date
+
+[[date-format]]
+=== General
+
+The representations provided in this clause are collectively denoted as [dateE].
+
+[[calendar-date]]
+==== Calendar date
+
+The complete representation of a calendar date shall be as follows.
+
+[source]
+----
+[yearE][monthE][dayE]
+----
+
+
+[example]
+'1985Y4M12D'
+
+
+[[ordinal-date]]
+==== Ordinal date
+
+A complete representation of an ordinal date shall be as follows.
+
+[source]
+----
+[yearE][dayoE]
+----
+
+[example]
+'1985Y102O'
+
+
+[[week-date]]
+==== Week date
+
+A complete representation of a week date shall be as follows.
+
+[source]
+----
+[yearE][weekE][daykE]
+----
+
+[example]
+'1985Y15W5K'
+
+
+[[time-of-day]]
+=== Time of day
+
+[[local-time-of-day]]
+==== Local time of day
+
+Representations of local time of day as defined below make no
+provisions to prevent ambiguities in expressions that result from
+discontinuities in the local time scale (e.g. daylight-saving time).
+When the need arises to prevent these ambiguities, the representations
+provided in <<local-time-shift>> may serve useful.
+
+A complete representation of local time of day shall be as follows.
+This representation shall be denoted as [timeE].
+
+[source]
+----
+["T"][hourE][minE][secE]
+----
+
+
+[example]
+'T23H20M50S'
+
+
+==== Beginning of the day
+
+The complete representation of beginning of day in explicit form shall
+be as follows.
+
+[source]
+----
+T0H0M0S
+----
+
+
+Applying the rule of omitting zero-valued time scale components, it can also
+be represented as:
+
+[source]
+----
+T0H
+----
+
+
+There is no representation of end of day for information interchange to prevent
+ambiguity of the overlapping end of day and the beginning of the next day.
+
+
+[[utc-of-day]]
+==== Time of day with time shift
+
+[source]
+----
+[timeE][shiftE]
+----
+
+
+[example]
+'T23H20M50SZ' UTC.
+
+[example]
+'T23H20M50SZ-5H0M' 5 hours behind UTC.
+
+[example]
+'T23H20M50SZ+8H' 8 hours ahead of UTC.
+
+
+
+[[date-and-time-of-day]]
+=== Date and time of day
+
+A time can be expressed by combining a date expression (<<date-rep>>)
+with a time of day expression (<<time-of-day>>).
+
+The date part of a date and time expression must be complete. The time
+may be incomplete (see <<time-of-day-reduced-precision>>).
+
+The representations provided in this clause are collectively denoted as
+[datetimeE].
+
+==== Date and time only
+
+The complete representation for date and time only is as follows.
+
+[source]
+----
+[dateE][timeE]
+----
+
+
+[example]
+'1985Y4M12DT23H20M30S'
+
+==== Date with shift
+
+The complete representation for date with a time shift is as follows.
+
+[source]
+----
+[dateE][shiftE]
+----
+
+
+[example]
+'1985Y4M12DZ-5H'
+
+==== Date and time with shift
+
+The complete representation for date with time and a time shift is as follows.
+
+[source]
+----
+[dateE][timeE][shiftE]
+----
+
+[example]
+'1985Y4M12DT23H20M30SZ+8H'
+
+
+
+[[time-interval]]
+=== Time interval
+
+==== General
+
+A time interval shall be expressed by a start and an end date.
+A solidus ["/"] is used as a separator to separate the two start and
+end dates.
+
+The representation of a time interval is defined as follows.
+
+[source]
+----
+[datetimeE]["/"][datetimeE]
+----
+
+[example]
+'1985Y4M12DT23H20M50S/1985Y6M25DT10H30M0S', time interval beginning at
+20 minutes and 50 seconds past 23 hours on 12 April 1985 local time of
+day and ending at 30 minutes past 10 hours on 25 June 1985 local time
+of day.
+
+
+==== Duration substitution
+
+Providing a duration as an alternative to either a start or end date is
+acceptable, given the start and end dates can be inferred from the given
+duration of the time interval.
+
+[example]
+'1985Y4M12DT23H20M50S/P3D'
+
+==== Time scale component order
+
+For expression of a time interval by a start and an end, higher order
+time scale components may be omitted from the "end of time interval",
+provided that the resulting expression is unambiguous. In this case the
+omitted higher order components from the "start of time interval"
+expression apply.
+
+[example]
+'2018Y1M15D/2M20D' represents '2018Y1M15D/2018Y2M20D' as the expression
+'2M20D' unambiguously refers to the calendar month and calendar day
+components, and the higher order components can be inherited from the
+start date expression.
+
+==== Time shift indication
+
+Representations for time zones and UTC included with the component
+preceding the separator shall be assumed to apply to the component
+following the separator, unless a corresponding alternative is included.
+
+[example]
+'2018Y1M15DZ5Y0M/2018Y2M20D' is equivalent to
+'2018Y1M15DZ5Y0M/2018Y2M20DZ5Y0M' as the 'Z5H0M' time shift also
+applies to the expression after the separator.
+
+
+[[duration]]
+=== Duration
+
+==== General
+
+Duration can be expressed by a combination of units -- years, months,
+weeks, days, hours, minutes, and seconds in explicit form.
+
+A duration expression shall begin with ["P"]. Time scale components of
+higher order shall be expressed before those of lower order.
+
+[source]
+----
+["P"][!]["-"][duration-units]
+----
+
+Where,
+
+* `[duration-units]` contains time scale components for expressing
+  positive duration as specified in <<time-scale-components>>
+
+[example]
+'P3D', duration of three days.
+
+[example]
+'P3W2D', duration of three weeks and two days, which is 23 days, as
+equivalent to the expression of 'P23D'.
+
+[example]
+'P180Y800D', duration of one-hundred-and-eighty years and eight-hundred days.
+
+
+==== Negative duration
+
+A duration with a negative value represents a duration in the reverse
+direction of the proceeding time scale.
+
+[example]
+'P-20Y3M', a negative duration, meaning twenty years and three months ago.
+
+
+NOTE:	The exact duration for some time scale components can only be
+known when placed in context, i.e. the actual time scale.
+
+[example]
+'P1Y2M15DT12H30M0S', duration of 1 year, 2 months, 15 days, 12 hours
+and 30 minutes. The actual duration of the involved calendar months can
+only be known when the duration is placed on an actual start date.
+

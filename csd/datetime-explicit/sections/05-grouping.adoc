@@ -1,0 +1,53 @@
+
+[[grouping]]
+== Grouping of time scale units
+
+A time scale unit, expressed as an explicit time scale component value,
+can be divided with the following syntax replacing the time scale
+component value:
+
+[source]
+----
+["G"][duration][i]["I"][symbol(c)]
+----
+
+
+Where,
+
+* ["G"], the grouping designator, indicates that this time scale
+component is to be grouped;
+
+* [duration], a time scale component indicating the time interval of
+the grouping unit;
++
+[example]
+The duration of 'P6D' indicates the grouping is a 6-day block, 'P2M10D'
+indicates the grouping is a block of 2 months and 10 days.
+
+* ["I"] indicates that the subsequent number identifies an instance in
+the grouped time interval; and
+
+* [i] indicates that the current selection points to the i-th group.
+
+[example]
+'2018YGP6M1IM' is a reduced precision date representations of monthly
+precision that indicates "the first half of 2018", as specified by the
+rule "group every 6 months, first group", and therefore the grouping is
+specified in the [month] field. The resulting time interval is
+equivalent to the time interval expression '2018Y1M1D/2018Y6M30D'.
+
+[example]
+'2018Y02MGP14D2ID' is a complete date representations that indicates
+"the second fortnight of February 2018", as specified by the rule
+"group every 14 days, second group".
+
+[example]
+'2018Y03MGP10D3ID' is a complete date representation that indicates
+"the third 10-day block of March in 2018", as specified by the rule
+"group every 10 days, third group". A 10-day block is a time grouping
+commonly used in East Asia.
+
+[example]
+'T16HGPT15M1I0S' is a complete time representation that indicates "the
+first quarter-hour of 16:00", as specified by the rule "group every 15
+minutes, first group".

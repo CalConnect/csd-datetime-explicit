@@ -1,0 +1,257 @@
+
+
+
+[[time-scale-components]]
+== Time scale components and units
+
+=== General
+
+The explicit forms of time scale units are represented in this clause.
+
+=== Calendar year and years duration
+
+The calendar year and years duration is represented as follows:
+
+[source]
+----
+[!]["-"][i]["Y"]
+----
+
+[example]
+'12Y', duration, twelve years
+
+[example]
+'-12Y', date, twelve years before year 0
+
+
+=== Calendar month and months duration
+
+The calendar month and months duration is represented as follows:
+
+[source]
+----
+[i]["M"]
+----
+
+
+[example]
+'8M', 8 months
+
+
+=== Calendar week number and weeks duration
+
+The calendar week of year number and weeks duration is represented as
+follows:
+
+[source]
+----
+[!]["-"][i]["W"]
+----
+
+
+[example]
+'10W', duration, ten weeks
+
+[example]
+'-10W', negative duration, the tenth last week of the year
+
+
+When a negative calendar week of year represents a date, the negative
+value is to represent the number of weeks counting in reverse from the
+end of the calendar year, where the last week of the year is
+represented by the integer value '-1'.
+
+
+
+=== Calendar day of month and days duration
+
+The calendar day of month and days duration is represented as follows:
+
+[source]
+----
+[i]["D"]
+----
+
+
+[example]
+'25D', 25 days
+
+When a negative calendar day of month represents a date, the negative
+value is to represent the number of days counting in reverse from the
+end of the calendar month, where the last day of the month is
+represented by the integer value '-1'.
+
+
+=== Calendar day of week
+
+The calendar day of week is represented as the following time scale component:
+
+[source]
+----
+[i]["K"]
+----
+
+
+[example]
+'1K'  (calendar day of week Monday)
+
+
+=== Calendar day of year
+
+The calendar day of year is represented as the following time scale component:
+
+[source]
+----
+[i]["O"]
+----
+
+
+[example]
+'350O'    (ordinal day 350 of the calendar year)
+
+
+When a negative calendar day of year represents a date, the negative
+value is to represent the number of days counting in reverse from the
+end of the calendar year, where the last day of the year is represented
+by the integer value '-1'.
+
+
+=== Clock hour and hours duration
+
+Clock hour and hours duration is represented as follows:
+
+[source]
+----
+[i]["H"]
+----
+
+
+[example]
+'6H'   (six hours)
+
+
+=== Clock minute and minutes duration
+
+Clock minute and minutes duration is represented as follows:
+
+[source]
+----
+[i]["M"]
+----
+
+
+[example]
+'30M'  (30 minutes)
+
+
+=== Clock second and seconds duration
+
+Clock second and seconds duration is represented as follows:
+
+[source]
+----
+[i]["S"]
+----
+
+
+[example]
+'30S'   (30 seconds)
+
+
+When a negative clock second represents a time, the negative value is
+to represent the number of seconds counting in reverse from the end of
+the clock minute, where the last second of the minute is represented by
+the integer value '-1'.
+
+
+=== Decade
+
+The decade is represented as the following time scale component:
+
+[source]
+----
+[i]["U"]
+----
+
+
+[example]
+'196U' (the 1960s)
+
+
+=== Century
+
+The century is represented as the following time scale component:
+
+[source]
+----
+[i]["C"]
+----
+
+
+[example]
+'19C'  (the 1900s)
+
+
+
+[[time-shift]]
+=== Time shift
+
+A time shift, often used in the representation of local standard time
+against UTC, is represented as follows. This representation is denoted
+as [shiftE].
+
+[source]
+----
+["Z"][!]["-"][timeE]
+----
+
+
+[example]
+'Z-05H'
+
+[example]
+'Z05H00M'
+
+[example]
+'Z05H30M10S'
+
+[example]
+'Z'
+
+A single ["Z"] with the [timeE] portion empty indicates that there is
+no time shift from UTC of day and is functionally equivalent to the
+representation [Z00H00M].
+
+The time shift shall be expressed as positive (i.e. with the leading
+plus sign ["+"]) if it is ahead of or equal to UTC, and as negative
+(i.e. with the leading minus sign ["-"]) if it is behind UTC.
+
+
+[[value-restriction]]
+=== Value restrictions
+
+[[negative-values]]
+==== Negative values
+
+Certain time scale components are allowed to accept a negative integer
+as their value in [i].
+
+[[leading-zero]]
+==== Leading zeros
+
+Leading zeros in an explicit form date time representation shall be omitted.
+
+[example]
+The calendar month January is expressed as '1M', not '01M'.
+
+
+[[omission-zero]]
+==== Omission of zero valued components
+
+Time scale components within an explicit form that has a value of '0'
+may be omitted entirely with its corresponding designator.
+
+[example]
+The date 1985 April 15th 3pm can be identically represented by
+'1985Y4Y15DT15H' and '1985Y4Y15DT15H0M0S'.
+

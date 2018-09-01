@@ -1,0 +1,190 @@
+
+[[tda]]
+[source=ISO8601-1]
+== Terms, definitions, symbols and abbreviations
+
+=== Terms and definitions
+
+[[term-explicit]]
+==== explicit form
+
+date and time representation that uses designator symbols to delimit time scale components
+
+[[term-designator]]
+==== designator symbols
+
+characters used to denote units of a time scale component
+
+
+[[symbols]]
+=== Symbols
+
+[[symbols-general]]
+==== General
+
+Representations and expressions specified in this document make use of the symbols listed in <<symbols-time-scale-component>> through <<symbols-separator>>.
+
+Representations (also referred to as "`format representations`") give rise to expressions for dates, times, intervals and recurring intervals.
+
+[example]
+[YYYY] is a format representation for a calendar year, where each Y is to be replaced by a single digit creating an expression, for example '`1985`'.
+
+[example]
+The date and time representation [YYYY]["`-`"][MM]["`-`"][DD] gives rise to the expression '`2003-02-10`' which identifies 10 February 2003.
+
+To clearly separate date and time representations, from and the text, punctuation marks and associated symbols used to describe them, the following symbols are used to demarcate boundaries of expressions and representations in this document:
+
+* single quotation marks enclose expressions (for example '`1985`'); in some cases they are omitted to reflect the actualities of the examples;
+
+* all individual tokens that are part of a representation are contained between the open and close bracket symbols ("`["` and "`]`"), when used in a representation the bracket symbols are not part of any expression of that representation; +
++
+====
+For the date and time representation [YYYY]["`-`"][MM]["`-`"][DD], [YYYY],  ["`-`"],  [MM],  ["`-`"],  and [DD] are individual tokens enclosed by brackets.
+====
+
+* when double quotations marks enclose a string within a representation, that string is a literal and becomes part of any expression of that representation. +
++
+====
+The representation [i]["`Y`"] represents a positive integer followed by the symbol "`Y`". '`12Y`' meaning "`12 years`" is an expression of that representation.
+====
+
+Quotation marks and brackets are not part of the expression or representation itself and must be omitted in implementation.
+
+All characters used in date and time expressions and representations are part of the <<ISOIEC646>> repertoire, except for "`hyphen`", "`minus`" and "`plus-minus`". In an environment where use is made of a character repertoire based on <<ISOIEC646>>, "`hyphen`" and "`minus`" should be both mapped onto "`hyphen-minus`".
+
+The character "`space`" shall not be used in the expressions.
+
+NOTE:	These designators are used for the designation of units of time and nominal durations in the representations defined in this document. For the designation of units of time and durations in other contexts, <<ISO80000-3>> applies.
+
+[[symbols-time-scale-component]]
+==== Time scale component symbols
+
+The following time scale component symbols are in implied form, for the representation of date and time.
+
+year::
+time scale component calendar year
+
+month::
+time scale component calendar month
+
+week::
+time scale component calendar week of year
+
+day::
+time scale component calendar day of month
+
+dayk::
+time scale component calendar day of week
+
+dayo::
+time scale component calendar day of year
+
+hour::
+time scale component clock hour
+
+min::
+time scale component clock minute
+
+sec::
+time scale component clock second
+
+dec::
+time scale component decade
+
+cent::
+time scale component century
+
+
+[[symbols-composite]]
+==== Composite component symbols
+
+dateE::
+the composite time scale components for the complete representation of a date as determined in <<date-format>>
+
+timeE::
+the composite time scale components for the complete representation of a time of day as determined in <<local-time-of-day>>
+
+shiftE::
+the composite time scale component for time shift in basic form with hours and minutes, as determined in <<time-shift>>
+
+durationE::
+the composite time scale units for the representation of a duration as determined in <<ISO8601>>
+
+
+[[symbols-inplace]]
+==== Symbols used in place of digits or signs
+
+These symbols are used to represent characters in the date and time representations. They are used in representations only, and are replaced by one or more characters, as described, in expressions:
+
+!::
+indicates that the token following this symbol is optional (may be omitted)
+
+n::
+a positive integer or value, may be left absent to signify an unbounded value
+
+i::
+a positive integer
+
+
+[[symbols-designator]]
+==== Designator symbols
+
+These symbols are used to represent designators in the date and time expressions:
+
+
+"`H`"::
+the hour designator, represented by the character "`H`", preceding a data element which represents the number of hours
+
+"`M`"::
+the month or minute designator, represented by the character "`M`", preceding a data element which represents the number of months or minutes
+//+
+//NOTE: Although "`M`" can be used to designate months or for minutes, its meaning is unambiguous in expressions because the time portion will be preceded by the time designator "`T`".
+
+"`P`"::
+the duration designator, represented by the character "`P`", preceding the component which represents the duration
+
+"`S`"::
+the second designator, represented by the character "`S`", preceding a data element which represents the number of seconds
+
+"`T`"::
+the time designator, represented by character "`T`", indicates:
++
+** the start of the representation of local time of day to designate local time of day expressions as such,
+** the start of the representation of the time of day in date and time of day expressions,
+** the start of the representation of the number of hours, minutes or seconds in expressions of duration
+
+"`Y`"::
+the year designator, represented by the character "`Y`", preceding a data element which represents the number of years
+
+"`U`"::
+the decade designator, represented by the character "`U`", preceding a data element which represents the number of decades
+
+"`W`"::
+the week designator, represented by the character "`W`", preceding a data element which represents the ordinal number of a calendar week within the calendar year
+
+"`K`"::
+the calendar day of week designator, represented by the character "K", preceding a data element which represents the ordinal number of a calendar day within a calendar week
+
+"`O`"::
+the calendar day of year designator, represented by the character "O", preceding a data element which represents the ordinal number of a calendar day within a calendar year
+
+"`Z`"::
+the UTC designator, represented by the character "`Z`", added to the end of a time representation to indicate that a time of day is represented as UTC of day.
+
+"`G`"::
+the grouping designator, represented by the character "G", indicates a grouping calculation applies to the time scale component
+
+"`_x_`"::
+the representation of any character "`_x_`" as according to the textual representation of "`_x_`" in the <<ISOIEC646>> repertoire
+
+
+[[symbols-separator]]
+==== Separator symbols
+
+In date and time expressions and date and time representations, the following characters are used as separators.
+
+"`/`" (solidus)::
+the "`/`" solidus character separates start and end times in the representation of a time interval, as well as the symbol '`R`' from the remainder of a recurring time interval representation. A solidus may be replaced with a double hyphen ["`--`"] by mutual agreement of the communicating partners.
+
+"`.`" (period) and "`,`" (comma)::
+the "`.`" period and "`,`" comma characters are decimal signs used to separate the integer part from the decimal fraction of a number.

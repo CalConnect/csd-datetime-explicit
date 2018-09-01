@@ -1,0 +1,14 @@
+
+:sectnums:
+[[scope]]
+== Scope
+
+The purpose of this document is to provide a standard representation
+of date and time that has time scale component values clearly
+delimited by designated symbols, in order to minimize necessary
+assumptions inherent to the representation format itself.
+
+The date and time format representations described in this document
+utilizes numbers, alphabets and symbols defined in <<ISOIEC646>>.
+These representations are meant to be both human recognizable and
+machine readable.
