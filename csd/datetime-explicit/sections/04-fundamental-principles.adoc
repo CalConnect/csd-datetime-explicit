@@ -38,7 +38,7 @@ The calendar month and months duration is represented as follows:
 '8M', 8 months
 
 
-=== Calendar week number and weeks duration
+=== Calendar week of year and weeks duration
 
 The calendar week of year number and weeks duration is represented as
 follows:
