@@ -1,6 +1,7 @@
 SRC  := $(wildcard csd-*.adoc)
 XML  := $(patsubst %.adoc,%.xml,$(SRC))
 PDF  := $(patsubst %.adoc,%.pdf,$(SRC))
+DOC  := $(patsubst %.adoc,%.doc,$(SRC))
 HTML := $(patsubst %.adoc,%.html,$(SRC))
 
 SHELL := /bin/bash
@@ -17,7 +18,7 @@ Gemfile Gemfile.lock:
 	ln -s ../common/$@ .
 
 %.xml %.html %.pdf: %.adoc bundle
-	bundle exec metanorma -t csd -x xml,html,pdf $<
+	bundle exec metanorma -t csd -x xml,doc,html,pdf $<
 
 html: $(HTML)
 
