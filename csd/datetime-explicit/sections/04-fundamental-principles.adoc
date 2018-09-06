@@ -252,6 +252,5 @@ Time scale components within an explicit form that has a value of '0'
 may be omitted entirely with its corresponding designator.
 
 [example]
-The date 1985 April 15th 3pm can be identically represented by
-'1985Y4Y15DT15H' and '1985Y4Y15DT15H0M0S'.
-
+'1985Y4M15DT15H' and '1985Y4M15DT15H0M0S' can be both used to express
+the time 3 p.m on April 15th, 1985 in the Gregorian calendar.
