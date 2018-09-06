@@ -137,8 +137,6 @@ the hour designator, represented by the character "`H`", preceding a data elemen
 
 "`M`"::
 the month or minute designator, represented by the character "`M`", preceding a data element which represents the number of months or minutes
-//+
-//NOTE: Although "`M`" can be used to designate months or for minutes, its meaning is unambiguous in expressions because the time portion will be preceded by the time designator "`T`".
 
 "`P`"::
 the duration designator, represented by the character "`P`", preceding the component which represents the duration
@@ -172,10 +170,22 @@ the calendar day of year designator, represented by the character "O", preceding
 the UTC designator, represented by the character "`Z`", added to the end of a time representation to indicate that a time of day is represented as UTC of day.
 
 "`G`"::
-the grouping designator, represented by the character "G", indicates a grouping calculation applies to the time scale component
+the grouped time scale unit prefix designator, represented by the character "`G`", indicates a grouping calculation applies to the subsequent time scale components until encountering the corresponding suffix designator.
+
+"`U`"::
+the grouped time scale unit suffix designator, represented by the character "`U`", indicates a grouping calculation applies to the preceding time scale components from the corresponding prefix designator.
 
 "`_x_`"::
 the representation of any character "`_x_`" as according to the textual representation of "`_x_`" in the <<ISOIEC646>> repertoire
+
+NOTE: Although "`M`" can be used to designate months or for minutes, its meaning is unambiguous in expressions because the time portion shall always be preceded by the time designator "`T`".
+
+NOTE: The designator symbol "`J`" is assigned from its ordinal position
+being the tenth letter of the English alphabet.
+
+NOTE: The "`G`" and "`U`" designator symbols are used to demarcate the
+"grouped time scale unit" time scale components as they form the
+initial letters of the words "group" and "unit".
 
 
 [[symbols-separator]]

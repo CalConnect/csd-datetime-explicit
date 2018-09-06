@@ -12,10 +12,11 @@ This section provides date and time representations using explicit form.
 Rules specified in <<value-restriction>> applies to all representations
 described in this clause.
 
-If a time scale component of a higher order (compared to the lowest
-order component specified in the representation) is omitted, it is
-assumed to have the value "0" as long as the time scale component
-accepts the value "0".
+In accordance with <<omission-zero>>, if a time scale component of a
+higher order (compared to the lowest order component specified in
+the representation) is omitted, it is assumed to have the value "0"
+as long as the time scale component accepts the value "0".
+
 
 [[representations-precision]]
 ==== Indication of precision
@@ -32,6 +33,22 @@ indicates the precision level of the representation.
 [example]
 '1985Y4M12DT30M' has clock minute precision, where the clock hour time
 scale component is a zero-valued omission.
+
+
+==== Applicability of grouped time scale units
+
+As specified in <<grouping>>, the grouped time scale units can be applied
+to date and time representations as replacements for any time scale
+components as long as the resulting expression is a valid one.
+
+[example]
+`2018Y3G60DU6D` is a valid date expression that refers to the date
+year 2018, ordinal day of year 186 (which is July 5th).
+
+[example]
+`2018Y9M2DT2GT8HU0H30M` is a valid date and time expression that
+refers to the date year 2018, September 2nd, 16:30.
+
 
 [[date-rep]]
 === Date
@@ -119,7 +136,6 @@ be as follows.
 T0H0M0S
 ----
 
-
 Applying the rule of omitting zero-valued time scale components, it can also
 be represented as:
 
@@ -128,9 +144,16 @@ be represented as:
 T0H
 ----
 
+Or just:
 
-There is no representation of end of day for information interchange to prevent
-ambiguity of the overlapping end of day and the beginning of the next day.
+[source]
+----
+T
+----
+
+
+There is no representation of end of day to prevent ambiguity of the
+overlapping end of day and the beginning of the next day.
 
 
 [[utc-of-day]]
@@ -149,7 +172,7 @@ ambiguity of the overlapping end of day and the beginning of the next day.
 'T23H20M50SZ-5H0M' 5 hours behind UTC.
 
 [example]
-'T23H20M50SZ+8H' 8 hours ahead of UTC.
+'T23H20M50SZ8H' 8 hours ahead of UTC.
 
 
 
@@ -201,7 +224,26 @@ The complete representation for date with time and a time shift is as follows.
 ----
 
 [example]
-'1985Y4M12DT23H20M30SZ+8H'
+'1985Y4M12DT23H20M30SZ8H'
+
+
+==== Grouped time scale unit representation with shift
+
+A representation using grouped time scale units can be represented
+with a time shift as:
+
+[source]
+----
+[groupDateTime][shiftE]
+----
+
+[example]
+'`2018Y1G60DUZ-5H`', the first 60-day group of the year 2018,
+five hours behind UTC.
+
+[example]
+'`2018Y3G60DU6DZ8H`' represents the sixth day of the third
+60-day group of the year 2018, eight hours ahead of UTC.
 
 
 
@@ -266,23 +308,52 @@ applies to the expression after the separator.
 [[duration]]
 === Duration
 
-==== General
+[[duration-general]]
+==== Combined duration units
 
-Duration can be expressed by a combination of units -- years, months,
-weeks, days, hours, minutes, and seconds in explicit form.
+Duration can be expressed by a combination of units
+in explicit form --
+years, months, weeks, days, hours, minutes, and seconds.
 
-A duration expression shall begin with ["P"]. Time scale components of
-higher order shall be expressed before those of lower order.
+These time scale components are specified in
+<<time-scale-components>>, and are used to specify
+positive duration.
+
+The following time scale components can be combined
+to form a representation denoted as [durationUnits]
+for the expression of duration.
 
 [source]
 ----
-["P"][!]["-"][duration-units]
+[yearE][monthE][weekE][dayE]["T"][hourE][minuteE][secondE]
 ----
 
 Where,
 
-* `[duration-units]` contains time scale components for expressing
-  positive duration as specified in <<time-scale-components>>
+* each time scale component (such as [monthE]) may be omitted.
+
+* the time designator symbol ["T"] is used to separate
+the time scale components relating to the clock from those of
+the calendar.
+
+Within [durationUnits], time scale components of higher order
+shall be expressed before those of lower order.
+
+
+==== Complete representation
+
+The complete representation of a duration is given as follows.
+
+[source]
+----
+["P"][!]["-"][durationUnits]
+----
+
+Where,
+
+* `[durationUnits]` contains time scale components for expressing
+  positive duration
+
 
 [example]
 'P3D', duration of three days.
@@ -294,6 +365,9 @@ equivalent to the expression of 'P23D'.
 [example]
 'P180Y800D', duration of one-hundred-and-eighty years and eight-hundred days.
 
+NOTE:	The exact duration for some time scale components can only be
+known when placed on the actual time scale.
+
 
 ==== Negative duration
 
@@ -304,8 +378,23 @@ direction of the proceeding time scale.
 'P-20Y3M', a negative duration, meaning twenty years and three months ago.
 
 
-NOTE:	The exact duration for some time scale components can only be
-known when placed in context, i.e. the actual time scale.
+==== Context-dependent duration
+
+The exact duration of some time scale units can only be known
+when placed on the actual time scale.
+
+[example]
+'P1Y' duration could be 365 or 366 calendar days depending on
+whether the year is a leap year.
+
+[example]
+'P3M' duration could be 90, 91, 92 days depending on the actual
+calendar months and calendar year.
+
+[example]
+'PT1M' duration is normally 60 seconds, but when the minute is the
+last minute of the year, it could be 59, 60 or 61 seconds long
+depending on whether a leap second is applied.
 
 [example]
 'P1Y2M15DT12H30M0S', duration of 1 year, 2 months, 15 days, 12 hours
