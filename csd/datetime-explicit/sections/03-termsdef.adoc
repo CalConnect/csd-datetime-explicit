@@ -156,8 +156,8 @@ the time designator, represented by character "`T`", indicates:
 "`Y`"::
 the year designator, represented by the character "`Y`", preceding a data element which represents the number of years
 
-"`U`"::
-the decade designator, represented by the character "`U`", preceding a data element which represents the number of decades
+"`J`"::
+the decade designator, represented by the character "`J`", preceding a data element which represents the number of decades
 
 "`W`"::
 the week designator, represented by the character "`W`", preceding a data element which represents the ordinal number of a calendar week within the calendar year
