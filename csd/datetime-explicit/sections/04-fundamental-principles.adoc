@@ -196,35 +196,43 @@ The century is represented as the following time scale component:
 [[time-shift]]
 === Time shift
 
-A time shift, often used in the representation of local standard time
-against UTC, is represented as follows. This representation is denoted
-as [shiftE].
+A time shift is used to represent the shift of local standard time
+against UTC.
+
+The representation of time shift is represented as follows, and is denoted
+as [shiftE] within this document.
 
 [source]
 ----
 ["Z"][!]["-"][timeE]
 ----
 
+Where,
+
+* the leading minus sign (["-"]) is only applied when the time shift
+  expressed is behind UTC, it shall be omitted if the time shift is
+  ahead of or equal to UTC.
 
 [example]
-'Z-05H'
+'Z-5H', five hours behind UTC.
 
 [example]
-'Z05H00M'
+'Z6H0M', six hours ahead of UTC; the expression '0M' may be omitted
+in accordance with <<representations-omission>>.
 
 [example]
-'Z05H30M10S'
+'Z8H30M10S', eight hours, thirty minutes and ten seconds ahead of UTC.
+
+A single ["Z"] with the [timeE] portion empty, in accordance with the
+rules specified in <<representations-omission>>, indicates that the
+time shift from UTC of day is zero, and is functionally equivalent to
+the representation [Z0H0M].
 
 [example]
-'Z'
+'Z', zero time shift from UTC.
 
-A single ["Z"] with the [timeE] portion empty indicates that there is
-no time shift from UTC of day and is functionally equivalent to the
-representation [Z00H00M].
-
-The time shift shall be expressed as positive (i.e. with the leading
-plus sign ["+"]) if it is ahead of or equal to UTC, and as negative
-(i.e. with the leading minus sign ["-"]) if it is behind UTC.
+[example]
+'Z0H0M', zero time shift from UTC.
 
 
 [[value-restriction]]
