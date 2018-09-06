@@ -91,9 +91,21 @@ The calendar day of week is represented as the following time scale component:
 [i]["K"]
 ----
 
+Where,
+
+* [i] represents the ordinal day number in the calendar week;
+valid values of [i] are the integers 1 to 7, representing Monday to Sunday,
+in accordance with "The week calendar" specified in <<ISO8601-1,clause 4.2.2>>.
+
 
 [example]
-'1K'  (calendar day of week Monday)
+'1K', calendar day of week Monday
+
+[example]
+'3K', calendar day of week Wednesday
+
+[example]
+'7K', calendar day of week Sunday
 
 
 === Calendar day of year
