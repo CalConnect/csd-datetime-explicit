@@ -119,7 +119,7 @@ The calendar day of year is represented as the following time scale component:
 
 
 [example]
-'350O'    (ordinal day 350 of the calendar year)
+'351O', ordinal day 351 of the calendar year
 
 
 When a negative calendar day of year represents a date, the negative
@@ -139,7 +139,7 @@ Clock hour and hours duration is represented as follows:
 
 
 [example]
-'6H'   (six hours)
+'6H', six hours
 
 
 === Clock minute and minutes duration
@@ -167,7 +167,7 @@ Clock second and seconds duration is represented as follows:
 
 
 [example]
-'30S'   (30 seconds)
+'30S', 30 seconds
 
 
 When a negative clock second represents a time, the negative value is
