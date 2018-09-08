@@ -8,6 +8,33 @@
 
 The explicit forms of time scale units are represented in this clause.
 
+=== Order of time scale units
+
+This document refers to an "`order`" of time scale units, which is defined
+by the duration of a single unit of a time scale unit. For example,
+a single "`month`" has a duration definitely longer than a single unit of "`day`", and therefore
+is considered of a higher order time scale unit than "`day`", at the same time,
+a "`day`" is considered of a lower order time scale unit than "`month`".
+
+The relative order of time scale units are specified as below, with
+the top listed entry the higher order time scale unit, and the
+lowest listed entry the lower order time scale unit:
+
+. calendar century
+. calendar decade
+. calendar year
+. calendar month
+. calendar week
+. calendar day
+. clock hour
+. clock minute
+. clock second
+
+NOTE: a higher order time scale does not necessarily mean its duration
+can be cleanly divided by a lower order time scale, for example,
+in the case of calendar month and calendar week.
+
+
 === Calendar year and years duration
 
 The calendar year and years duration is represented as follows:
