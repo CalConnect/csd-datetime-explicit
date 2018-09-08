@@ -216,6 +216,9 @@ The decade is represented as the following time scale component:
 [example]
 '196J', the 1960s, spanning the calendar years 1960 to 1969.
 
+[example]
+'0J', years 0 to 9.
+
 
 === Century
 
@@ -229,6 +232,9 @@ The century is represented as the following time scale component:
 
 [example]
 '19C', the 1900s, spanning the calendar years 1900 to 1999.
+
+[example]
+'0C', years 0 to 99.
 
 
 
