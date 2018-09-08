@@ -195,6 +195,8 @@ time scale unit.
 
 === Conversion to basic time scale units
 
+==== General
+
 When an expression referring to a grouped time scale
 unit has to be converted to use basic time scale units
 (time scale units that are defined in <<time-scale-components>>),
@@ -205,3 +207,36 @@ it can be converted into a time interval.
 The resulting time interval is equivalent to that of the time interval
 expression '`2018Y1M/2018Y6M`'.
 
+
+==== Truncation of partial units
+
+When the duration of a grouped time scale unit does not cleanly
+divide the original time scale component, the duration of
+the last unit of the grouped time scale is only partially
+located within the boundaries specified by the original time scale component.
+
+In this case, the particular grouped time scale unit refers only
+to the duration that is within bounds of the original time
+scale component. The remaining duration that are out
+of bounds shall be truncated.
+
+
+[example]
+`2018Y9M4G8DU` refers to the
+"`fourth 8-day grouping of September of year 2018`",
+but the fourth grouped unit only has 6 days within September
+and 2 days in October. According to the above truncation rule, only
+the first 6 days belong to this grouped unit, and the resulting
+time interval is `2018-09-25/2018-09-30`.
+
+NOTE: In order to express a time interval covered by the grouped
+unit without regard to the boundaries of the original time component,
+the same expression can be provided using time interval representation.
++
+====
+[example]
+For `2018Y9M4G8DU` ("`fourth 8-day grouping of September of year 2018`"),
+the start date of the fourth grouped unit can be found as `2018Y9M25D`.
+Therefore, the expression of `2018Y9M25D/P8D` provides the full 8-day
+duration of the unit, in the interval `2018Y9M25D/2018Y10M2`.
+====
