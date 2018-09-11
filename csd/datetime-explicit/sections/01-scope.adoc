@@ -3,10 +3,16 @@
 [[scope]]
 == Scope
 
-The purpose of this document is to provide a standard representation
-of date and time that has time scale component values clearly
-delimited by designated symbols, in order to minimize necessary
-assumptions inherent to the representation format itself.
+The purpose of this document is to provide:
+
+* a standard, declarative representation of date and time and time
+  scale components called the "`explicit form`";
+
+* a grouped time scale unit mechanism for grouping of date and time;
+  and
+
+* new duration representations and mechanics for the calculation of
+  date time formulas involving duration.
 
 This document only supports date elements from the Gregorian calendar and
 times from the 24-hour clock.

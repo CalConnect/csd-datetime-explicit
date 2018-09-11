@@ -9,6 +9,7 @@
 Additional properties and the explicit forms of time scale units are
 represented in this clause.
 
+
 === Order of time scale units
 
 This document refers to an “order” amongst time scale units, which is
@@ -40,6 +41,18 @@ and calendar week (7 days).
 
 
 === Explicit forms
+
+
+[[value-restriction]]
+==== Value prefixing
+
+Prefixing of the value with one or more “0”s (the number zero) to the
+integer [i] is allowed in the explicit forms of time scale components.
+
+[example]
+'1M', '01M', and '0001M' all describe the calendar month January.
+
+
 
 ==== Calendar year and years duration
 
@@ -372,6 +385,9 @@ Where,
 [example]
 ‘-P1Y3D’ in date represents the duration of one years and three days in the reverse direction.
 
+[example]
+‘-P20Y3M’ describes a negative duration of twenty years and three months ago.
+
 
 ==== Calendar year before year one
 
@@ -402,15 +418,4 @@ Where,
 [example]
 '12CB' the twelfth century before year one, equivalent to the effect of time interval
 '-1190/-1100'.
-
-
-
-[[value-restriction]]
-=== Value prefixing
-
-Prefixing of the value with one or more “0”s (the number zero) to the
-integer [i] is allowed in the explicit forms of time scale components.
-
-[example]
-'1M', '01M', and '0001M' all describe the calendar month January.
 

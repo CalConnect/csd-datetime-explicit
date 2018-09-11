@@ -40,7 +40,7 @@ A complete representation of an ordinal date shall be as follows.
 ----
 
 [example]
-'1985Y102O', calendar year 1985, ordinal day of year 102.
+'1985Y102O', calendar year 1985, ordinal day 102 of year.
 
 
 [[week-date]]
@@ -275,13 +275,6 @@ In the representations given in this clause, if a time scale component of a high
 '1985Y4M15DT15H0M10S' and '1985Y4M15DT15H10S' can be both used to express
 the time 3:00:10 p.m. on April 15th, 1985 in the Gregorian calendar.
 
-Rules specified in <<value-restriction>> applies to all representations
-described in this clause.
-
-
-[example]
-'1985Y4M15DT15H0M10S' and '1985Y4M15DT15H10S' can be both used to express the time 3:00:10 p.m. on April 15th, 1985 in the Gregorian calendar.
-
 [example]
 '1988Y3M1DT2H0M0S' and '1988Y3M1DT2H' are unequal representations where the former expression has seconds precision, and the latter expression has hour precision.
 
@@ -322,7 +315,7 @@ A decimal fraction of hour, minute or second may be included in an expression in
 
 
 [[representations-reduced-precision]]
-=== 7.13	Representations other than complete
+=== Representations other than complete
 
 Any of the representations given in this clause may be modified for reduced precision
 (<<representations-precision>>) and decimal representation (<<representations-decimal>>).
@@ -368,6 +361,9 @@ duration of the time interval.
 
 [example]
 '1985Y4M12DT23H20M50S/P3D'
+
+[example]
+'P3D/1985Y4M12DT23H20M50S'
 
 ==== Time scale component order
 

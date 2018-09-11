@@ -109,6 +109,7 @@ The out of bounds expression `2019Y2M29D`" can be truncated to `2019Y2M28D`.
 [example]
 The out of bounds expression `2020Y366O`" can be truncated to `2020Y365O`.
 
+
 ////
 A truncation can cause multiple carry-overs when the overflow not only
 causes the immediate higher order time scale component to overflow, but
@@ -333,7 +334,7 @@ method always produces a consistent value.
 
 [example]
 ====
-. Given the expression: `2018-01-23 + P0.5M`
+Given the expression: `2018-01-23 + P0.5M`:
 
 . It is rephrased as `duration(2018-01-23 + P1M, 2018-01-23) × 0.5 + 2018-01-23`.
 
@@ -361,9 +362,7 @@ to evaluate a date time formula that involves leap seconds.
 
 [example]
 ====
-This example applies identically with or without a leap second.
-
-. Given the expression: `2018-12-31T23:59:59 + PT1M`
+This example applies identically with or without a leap second. Given the expression: `2018-12-31T23:59:59 + PT1M`:
 
 . Apply the durational unit clock minute directly to the representation: `2018-12-31T23:60:59`
 
@@ -380,7 +379,7 @@ This example applies identically with or without a leap second.
 
 [example]
 ====
-. Given the expression containing a leap second: `2016-12-31T23:59:60 + PT1M`
+Given the expression containing a leap second: `2016-12-31T23:59:60 + PT1M`:
 
 . Apply the durational unit clock minute directly to the representation: `2016-12-31T23:60:60`
 
@@ -400,7 +399,7 @@ This example applies identically with or without a leap second.
 
 [example]
 ====
-. Given the expression containing a leap second: `2016-12-31T23:59:59 + PT1S`
+Given the expression containing a leap second: `2016-12-31T23:59:59 + PT1S`:
 
 . Apply the durational unit clock second directly to the representation: `2016-12-31T23:59:60`
 

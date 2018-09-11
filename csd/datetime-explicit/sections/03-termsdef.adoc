@@ -15,6 +15,23 @@ date and time representation that uses designator symbols to delimit time scale 
 
 characters used to denote units of a time scale component
 
+[[term-date-time-formula]]
+==== date time formula
+
+expression that specifies modification of a _date and time expression_ (<<ISO8601-1,clause 3.1.3.1>>) with a _duration_ (<<ISO8601-1,clause 3.1.1.8>>)
+
+[[term-durational-unit]]
+==== durational unit
+
+_time scale component_ (<<ISO8601-1,clause 3.1.3.3>>) that compose the _duration_ (<<ISO8601-1,clause 3.1.1.8>>) _date and time representation_ (<<ISO8601-1,clause 3.1.3.2>>)
+
+[[term-grouped-unit]]
+==== grouped time scale unit
+
+_time scale unit_ (<<ISO8601-1,clause 3.1.1.7>>) composed of a _duration_ (<<ISO8601-1,clause 3.1.1.8>>) expressed by one or more _durational units_ (<<term-durational-unit>>)
+
+
+
 
 [[symbols]]
 === Symbols
@@ -22,77 +39,47 @@ characters used to denote units of a time scale component
 [[symbols-general]]
 ==== General
 
-Representations and expressions specified in this document make use of the symbols listed in <<symbols-time-scale-component>> through <<symbols-separator>>.
+Representations specified in this document make use of symbols given in <<ISO8601-1>> and the following.
 
-Representations (also referred to as "`format representations`") give rise to expressions for dates, times, intervals and recurring intervals.
-
-[example]
-[YYYY] is a format representation for a calendar year, where each Y is to be replaced by a single digit creating an expression, for example '`1985`'.
-
-[example]
-The date and time representation [YYYY]["`-`"][MM]["`-`"][DD] gives rise to the expression '`2003-02-10`' which identifies 10 February 2003.
-
-To clearly separate date and time representations, from and the text, punctuation marks and associated symbols used to describe them, the following symbols are used to demarcate boundaries of expressions and representations in this document:
-
-* single quotation marks enclose expressions (for example '`1985`'); in some cases they are omitted to reflect the actualities of the examples;
-
-* all individual tokens that are part of a representation are contained between the open and close bracket symbols ("`["` and "`]`"), when used in a representation the bracket symbols are not part of any expression of that representation; +
-+
-====
-For the date and time representation [YYYY]["`-`"][MM]["`-`"][DD], [YYYY],  ["`-`"],  [MM],  ["`-`"],  and [DD] are individual tokens enclosed by brackets.
-====
-
-* when double quotations marks enclose a string within a representation, that string is a literal and becomes part of any expression of that representation. +
-+
-====
-The representation [i]["`Y`"] represents a positive integer followed by the symbol "`Y`". '`12Y`' meaning "`12 years`" is an expression of that representation.
-====
-
-Quotation marks and brackets are not part of the expression or representation itself and must be omitted in implementation.
-
-All characters used in date and time expressions and representations are part of the <<ISOIEC646>> repertoire, except for "`hyphen`", "`minus`" and "`plus-minus`". In an environment where use is made of a character repertoire based on <<ISOIEC646>>, "`hyphen`" and "`minus`" should be both mapped onto "`hyphen-minus`".
-
-The character "`space`" shall not be used in the expressions.
-
-NOTE:	These designators are used for the designation of units of time and nominal durations in the representations defined in this document. For the designation of units of time and durations in other contexts, <<ISO80000-3>> applies.
 
 [[symbols-time-scale-component]]
 ==== Time scale component symbols
 
-The following time scale component symbols are in implied form, for the representation of date and time.
+c(feat)::
+the left side of representation statement where “c” is a time scale component (e.g. “year”) and “feat” is a feature, for example, “m” for a time scale component that accepts negative values
 
-year::
-time scale component calendar year
+yearE::
+time scale component calendar year in explicit form
 
-month::
-time scale component calendar month
+monthE::
+time scale component calendar month in explicit form
 
-week::
-time scale component calendar week of year
+weekE::
+time scale component calendar week of year in explicit form
 
-day::
-time scale component calendar day of month
+dayE::
+time scale component calendar day of month in explicit form
 
-dayk::
-time scale component calendar day of week
+daykE::
+time scale component calendar day of week in explicit form
 
-dayo::
-time scale component calendar day of year
+dayoE::
+time scale component calendar day of year in explicit form
 
-hour::
-time scale component clock hour
+hourE::
+time scale component clock hour in explicit form
 
-min::
-time scale component clock minute
+minE::
+time scale component clock minute in explicit form
 
-sec::
-time scale component clock second
+secE::
+time scale component clock second in explicit form
 
-dec::
-time scale component decade
+decE::
+time scale component decade in explicit form
 
-cent::
-time scale component century
+centE::
+time scale component century in explicit form
 
 
 [[symbols-composite]]
@@ -125,21 +112,40 @@ a positive integer or value, may be left absent to signify an unbounded value
 i::
 a positive integer
 
+negi::
+a positive or negative integer; equivalent to `[!]["-"][i]`
 
 [[symbols-designator]]
 ==== Designator symbols
 
 These symbols are used to represent designators in the date and time expressions:
 
+"`-`"::
+a minus sign represented by the character “-“ to indicate a negative value
 
-"`H`"::
-the hour designator, represented by the character "`H`", preceding a data element which represents the number of hours
+"`K`"::
+the calendar day of week designator, represented by the character "K", preceding a data element which represents the ordinal number of a calendar day within a calendar week
+
+"`J`"::
+the decade designator, represented by the character "`J`", preceding a data element which represents the number of decades
+
+"`Y`"::
+the year designator, represented by the character "`Y`", preceding a data element which represents the number of years
 
 "`M`"::
 the month or minute designator, represented by the character "`M`", preceding a data element which represents the number of months or minutes
 
-"`P`"::
-the duration designator, represented by the character "`P`", preceding the component which represents the duration
+"`W`"::
+the week designator, represented by the character "`W`", preceding a data element which represents the ordinal number of a calendar week within the calendar year
+
+"`O`"::
+the calendar day of year designator, represented by the character "`O`", preceding a data element which represents the ordinal number of a calendar day within a calendar year
+
+"`D`"::
+the day of month designator, represented by the character "`D`", preceding a data element which represents the number of days in a month
+
+"`H`"::
+the hour designator, represented by the character "`H`", preceding a data element which represents the number of hours
 
 "`S`"::
 the second designator, represented by the character "`S`", preceding a data element which represents the number of seconds
@@ -151,20 +157,8 @@ the time designator, represented by character "`T`", indicates:
 ** the start of the representation of the time of day in date and time of day expressions,
 ** the start of the representation of the number of hours, minutes or seconds in expressions of duration
 
-"`Y`"::
-the year designator, represented by the character "`Y`", preceding a data element which represents the number of years
-
-"`J`"::
-the decade designator, represented by the character "`J`", preceding a data element which represents the number of decades
-
-"`W`"::
-the week designator, represented by the character "`W`", preceding a data element which represents the ordinal number of a calendar week within the calendar year
-
-"`K`"::
-the calendar day of week designator, represented by the character "K", preceding a data element which represents the ordinal number of a calendar day within a calendar week
-
-"`O`"::
-the calendar day of year designator, represented by the character "O", preceding a data element which represents the ordinal number of a calendar day within a calendar year
+"`P`"::
+the duration designator, represented by the character "`P`", preceding the component which represents the duration
 
 "`B`"::
 the suffix designator to represent years before year one, represented by the character "`B`", placed after the time scale components of calendar year, decade and century.
