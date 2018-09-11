@@ -167,7 +167,7 @@ the calendar day of week designator, represented by the character "K", preceding
 the calendar day of year designator, represented by the character "O", preceding a data element which represents the ordinal number of a calendar day within a calendar year
 
 "`B`"::
-the suffix designator to represent years before zero, represented by the character "`B`", placed after the time scale components of calendar year, decade and century.
+the suffix designator to represent years before year one, represented by the character "`B`", placed after the time scale components of calendar year, decade and century.
 
 "`Z`"::
 the UTC designator, represented by the character "`Z`", added to the end of a time representation to indicate that a time of day is represented as UTC of day.
