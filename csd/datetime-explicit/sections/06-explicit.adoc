@@ -98,7 +98,7 @@ be represented as:
 
 [source]
 ----
-T0H or T
+T0S
 ----
 
 There is no representation of end of day to prevent ambiguity of the
@@ -267,9 +267,9 @@ The complete representation for century is as follows.
 [[representations-omission]]
 === Omission of zero valued components
 
-Time scale components within an explicit form that has a value of '0' may be omitted entirely with its corresponding designator, except when the omission of it affects the indication of precision.
+Time scale components within an explicit form that has a value of `0` may be omitted entirely with its corresponding designator, except when the omission of it affects the indication of precision.
 
-In the representations given in this clause, if a time scale component of a higher order (compared to the lowest order component specified in the representation) is omitted, it is assumed to have the value “0” as long as the time scale component accepts the value “0” (<<ISO8601-1,clause 4.3>>).
+In the representations given in this clause, if a time scale component of a higher order (compared to the lowest order component specified in the representation) is omitted, it is assumed to have the value "`0`" as long as the time scale component accepts the value "`0`" (<<ISO8601-1,clause 4.3>>).
 
 [example]
 '1985Y4M15DT15H0M10S' and '1985Y4M15DT15H10S' can be both used to express
@@ -279,7 +279,7 @@ the time 3:00:10 p.m. on April 15th, 1985 in the Gregorian calendar.
 '1988Y3M1DT2H0M0S' and '1988Y3M1DT2H' are unequal representations where the former expression has seconds precision, and the latter expression has hour precision.
 
 [example]
-‘2018Y8M8DT30M0SZ’: indicates the date 8th August 2018 at time 00:30:00 in UTC time of day Since the “hour” component is omitted and “seconds” included, the hour is assumed to be zero, and the expression has seconds precision. This is equivalent to the expression ‘2018Y08M08DT30M0SZ’ in which zero padding is applied to calendar month and calendar day.
+'`2018Y8M8DT30M0SZ`': indicates the date 8th August 2018 at time 00:30:00 in UTC time of day Since the "`hour`" component is omitted and "`seconds`" included, the hour is assumed to be zero, and the expression has seconds precision. This is equivalent to the expression '`2018Y08M08DT30M0SZ`' in which zero padding is applied to calendar month and calendar day.
 
 
 [[representations-precision]]
@@ -304,13 +304,13 @@ scale component is a zero-valued omission.
 A decimal fraction of hour, minute or second may be included in an expression in accordance with <<ISO8601-1,clause 5.2.1.4>>.
 
 [example]
-‘2018Y8M8DT0,5H’: indicates the date 8th August 2018 at time 00:30 with minutes precision.
+'`2018Y8M8DT0,5H`': indicates the date 8th August 2018 at time 00:30 with minutes precision.
 
 [example]
-‘2018Y8M8DT10H30.5M’: indicates the date 8th August 2018 at time 10:30:30 with seconds precision.
+'`2018Y8M8DT10H30.5M`': indicates the date 8th August 2018 at time 10:30:30 with seconds precision.
 
 [example]
-‘2018Y8M8DT10H30M15,3S’: indicates the date 8th August 2018 at time 10:30:15 plus 300ms with sub-second precision.
+'`2018Y8M8DT10H30M15,3S`': indicates the date 8th August 2018 at time 10:30:15 plus 300ms with sub-second precision.
 
 
 
@@ -321,10 +321,10 @@ Any of the representations given in this clause may be modified for reduced prec
 (<<representations-precision>>) and decimal representation (<<representations-decimal>>).
 
 [example]
-‘2018Y8M’: indicates the date August 2018 with calendar month precision.
+'`2018Y8M`': indicates the date August 2018 with calendar month precision.
 
 [example]
-‘2018Y8M8DT30M’: indicates the date 8th August 2018 at time 00:30 with minute precision. Since the “hour” component is omitted, it is assumed to be zero because it is of a higher order than the lowest order component specified in the representation (here, “minutes). The omitted “second” component does not form part of the representation because it is of a lower order than the lowest order component.
+'`2018Y8M8DT30M`': indicates the date 8th August 2018 at time 00:30 with minute precision. Since the "`hour`" component is omitted, it is assumed to be zero because it is of a higher order than the lowest order component specified in the representation (here, "`minutes). The omitted "`second`" component does not form part of the representation because it is of a lower order than the lowest order component.
 
 
 

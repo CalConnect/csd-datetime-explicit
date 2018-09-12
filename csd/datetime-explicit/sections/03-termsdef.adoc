@@ -46,7 +46,7 @@ Representations specified in this document make use of symbols given in <<ISO860
 ==== Time scale component symbols
 
 c(feat)::
-the left side of representation statement where “c” is a time scale component (e.g. “year”) and “feat” is a feature, for example, “m” for a time scale component that accepts negative values
+the left side of representation statement where "`c`" is a time scale component (e.g. "`year`") and "`feat`" is a feature, for example, "`m`" for a time scale component that accepts negative values
 
 yearE::
 time scale component calendar year in explicit form
@@ -121,7 +121,7 @@ a positive or negative integer; equivalent to `[!]["-"][i]`
 These symbols are used to represent designators in the date and time expressions:
 
 "`-`"::
-a minus sign represented by the character “-“ to indicate a negative value
+a minus sign represented by the character "`-"` to indicate a negative value
 
 "`K`"::
 the calendar day of week designator, represented by the character "K", preceding a data element which represents the ordinal number of a calendar day within a calendar week

@@ -79,16 +79,16 @@ Where,
 '2G2DT6HU', the second unit of two-day groups.
 
 [example]
-‘2018-02-GP14D2I’ and ‘2018Y02MGP14D2ID’ are complete date representations that indicates “the second fortnight of February 2018”, as specified by the rule “group every 14 days, second group”.
+'`2018-02-GP14D2I`' and '`2018Y02MGP14D2ID`' are complete date representations that indicates "`the second fortnight of February 2018`", as specified by the rule "`group every 14 days, second group`".
 
 [example]
-‘2018-03-GP10D3I’ and ‘2018Y03MGP10D3ID’ are complete date representations that indicates “the third 10-day block of March in 2018”, as specified by the rule "group every 10 days, third group". A 10-day block is a time grouping commonly used in East Asia.
+'`2018-03-GP10D3I`' and '`2018Y03MGP10D3ID`' are complete date representations that indicates "`the third 10-day block of March in 2018`", as specified by the rule "group every 10 days, third group". A 10-day block is a time grouping commonly used in East Asia.
 
 [example]
-’16:GPT15M1I:00’ and ‘T16HGPT15M1I0S’ are complete time representations that indicates “the first quarter-hour of 16:00”, as specified by the rule “group every 15 minutes, first group”.
+`'16:GPT15M1I:00`' and '`T16HGPT15M1I0S`' are complete time representations that indicates "`the first quarter-hour of 16:00`", as specified by the rule "`group every 15 minutes, first group`".
 
 [example]
-‘2018-GP6M1I’ and ‘2018YGP6M1IM’ are date expressions (implied and explicit formats, respectively) of monthly precision that indicates “the first half of 2018”, as specified by the rule “group every 6 months, first group”, and therefore the grouping is specified in the [month] field. The resulting time interval is equivalent to the time interval expression ‘2018-01-01/2018-06-30’.
+'`2018-GP6M1I`' and '`2018YGP6M1IM`' are date expressions (implied and explicit formats, respectively) of monthly precision that indicates "`the first half of 2018`", as specified by the rule "`group every 6 months, first group`", and therefore the grouping is specified in the [month] field. The resulting time interval is equivalent to the time interval expression '`2018-01-01/2018-06-30`'.
 
 
 
