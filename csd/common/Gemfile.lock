@@ -1,3 +1,10 @@
+PATH
+  remote: ../../../../metanorma-csd
+  specs:
+    metanorma-csd (1.0.4)
+      isodoc (~> 0.9.0)
+      metanorma-standoc (~> 1.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -91,9 +98,6 @@ GEM
       ruby-xslt
       thread_safe
       uuidtools
-    metanorma-csd (1.0.4)
-      isodoc (~> 0.9.0)
-      metanorma-standoc (~> 1.0.0)
     metanorma-gb (1.0.4)
       gb-agencies (~> 0.0.1)
       isodoc (~> 0.9.0)
@@ -175,6 +179,7 @@ PLATFORMS
 DEPENDENCIES
   metanorma
   metanorma-cli
+  metanorma-csd!
 
 BUNDLED WITH
    1.16.2

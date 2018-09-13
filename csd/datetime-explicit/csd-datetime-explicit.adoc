@@ -1,13 +1,13 @@
 = CalConnect Standard: Date and time -- Explicit representation
 :title: Date and time -- Explicit representation
-:docnumber: CD 18011
+:docnumber: 18011
 :status: working-draft
 :doctype: standard
 :edition: 1
 :copyright-year: 2018
 :revdate: 2018-09-10T00:00:00Z
 :language: en
-:technical-committee: VCARD
+:technical-committee: VCARD, CALENDAR
 :draft:
 :toc:
 
