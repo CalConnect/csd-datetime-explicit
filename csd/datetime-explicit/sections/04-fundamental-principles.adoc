@@ -354,10 +354,10 @@ dayo(m)
 ----
 
 [example]
-'`-7D`' in date represents the seventh last day of the calendar year, which is always December 25th.
+'`-7O`' in date represents the seventh last day of the calendar year, which is always December 25th.
 
 [example]
-'`-306D`' in date represents February 29th for a leap year, February 28th otherwise.
+'`-306O`' in date represents February 29th for a leap year, February 28th otherwise.
 
 
 
