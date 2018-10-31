@@ -1,19 +1,43 @@
 SRC  := $(wildcard csd-*.adoc)
 XML  := $(patsubst %.adoc,%.xml,$(SRC))
 HTML := $(patsubst %.adoc,%.html,$(SRC))
-PDF  := $(patsubst %.adoc,%.xml,$(SRC))
 DOC  := $(patsubst %.adoc,%.doc,$(SRC))
+PDF  := $(patsubst %.adoc,%.pdf,$(SRC))
 
 SHELL := /bin/bash
+COMPILE_CMD_LOCAL := bundle exec metanorma -t csd -x xml,pdf,html,doc $$FILENAME
+COMPILE_CMD_DOCKER := docker run -v "$$(pwd)":/metanorma/ ribose/metanorma "metanorma -t csd -x xml,pdf,html,doc $$FILENAME"
 
-all: $(HTML) $(XML) $(PDF) $(DOC)
+ifdef METANORMA_DOCKER
+  COMPILE_CMD := echo "DOCKER"; $(COMPILE_CMD_DOCKER)
+else
+  COMPILE_CMD := echo "LOCAL"; $(COMPILE_CMD_LOCAL)
+endif
 
-clean:
-	rm -f $(HTML) $(XML) $(PDF) $(DOC)
+all: $(HTML) $(XML) $(PDF)
 
-%.xml %.html %.pdf %.doc: %.adoc
-	bundle exec metanorma -t csd -x html,pdf,doc,xml $^
-	#docker run -v "$$(pwd)":/metanorma/ ribose/metanorma -t csd -x html,pdf $<
+clean: clean-pdf clean-xml clean-html clean-doc
+
+clean-pdf:
+	rm -f $(PDF)
+
+clean-doc:
+	rm -f $(DOC)
+
+clean-xml:
+	rm -f $(XML)
+
+clean-html:
+	rm -f $(HTML)
+
+bundle:
+	bundle
+
+%.xml %.html %.doc %.pdf:	%.adoc #| bundle
+	FILENAME=$^; \
+	${COMPILE_CMD}
+
+html: clean-html $(HTML)
 
 open:
 	open $(HTML)
