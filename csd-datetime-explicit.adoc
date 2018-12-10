@@ -1,14 +1,16 @@
 = CalConnect Standard: Date and time -- Explicit representation
 :title: Date and time -- Explicit representation
 :docnumber: 18011
-:status: working-draft
+:status: final-draft
 :doctype: standard
 :edition: 1
 :copyright-year: 2018
 :revdate: 2018-09-10T00:00:00Z
+:published-date: 2018-09-10T00:00:00Z
 :language: en
 :technical-committee: VCARD, CALENDAR
-:draft:
+:local-cache-only:
+:data-uri-image:
 :toc:
 
 include::sections/0a-foreword.adoc[]
