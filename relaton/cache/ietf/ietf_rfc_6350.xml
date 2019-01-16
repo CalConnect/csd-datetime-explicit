@@ -1,0 +1,29 @@
+<bibitem id="RFC6350">
+  <fetched>2019-01-17</fetched>
+  <title format="plain" language="en" script="Latn">vCard Format Specification</title>
+  <uri type="src">https://www.rfc-editor.org/info/rfc6350</uri>
+  <docidentifier type="IETF">RFC 6350</docidentifier>
+  <docidentifier type="DOI">10.17487/RFC6350</docidentifier>
+  <date type="published">
+    <on>2011</on>
+  </date>
+  <contributor>
+    <role type="author"/>
+    <person>
+      <name>
+        <completename language="en">S. Perreault</completename>
+      </name>
+      <affiliation>
+        <organization>
+          <name>IETF</name>
+          <abbreviation>IETF</abbreviation>
+        </organization>
+      </affiliation>
+    </person>
+  </contributor>
+  <language>en</language>
+  <series type="main">
+    <title format="plain" language="en" script="Latn">RFC</title>
+    <number>6350</number>
+  </series>
+</bibitem>

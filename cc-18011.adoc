@@ -9,9 +9,16 @@
 :published-date: 2018-09-10T00:00:00Z
 :language: en
 :technical-committee: VCARD, CALENDAR
+:draft:
+:toc:
+:stem:
+:xrefstyle: short
+:imagesdir: images
+:docfile: cc-18011.adoc
+:mn-document-class: csd
+:mn-output-extensions: xml,html,pdf
 :local-cache-only:
 :data-uri-image:
-:toc:
 
 include::sections/0a-foreword.adoc[]
 

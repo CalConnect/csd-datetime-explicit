@@ -40,6 +40,7 @@ for example, in the case of calendar month (28, 29, 30 or 31 days)
 and calendar week (7 days).
 
 
+[[duration-general]]
 === Explicit forms
 
 
