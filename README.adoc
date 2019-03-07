@@ -8,7 +8,7 @@ image:https://travis-ci.com/CalConnect/csd-datetime-explicit.svg?branch=master["
 
 This document is available in its rendered forms here:
 
-* https://calconnect.github.io/csd-datetime-explicit/[CalConnect Calendar operator practices -- Guidelines to protect against calendar abuse (HTML)]
+* https://calconnect.github.io/csd-datetime-explicit/[Date and time -- Explicit representation (HTML)]
 * https://calconnect.github.io/csd-datetime-explicit/csd-datetime-explicit.pdf[PDF]
 * https://calconnect.github.io/csd-datetime-explicit/csd-datetime-explicit.xml[Metanorma XML]
 * https://calconnect.github.io/csd-datetime-explicit/csd-datetime-explicit.rxl[Relaton XML (Bibliographic item)]
