@@ -1,35 +1,48 @@
-= CalConnect Standard: Guidelines against calendar abuse for calendaring system operators
+:repo-name: csd-datetime-explicit
 
-////
-image:https://img.shields.io/travis/calconnect/csd-operator-guidelines/master.svg[
-	Build Status, link="https://travis-ci.org/calconnect/csd-operator-guidelines"]
-////
+= CalConnect Standard: Date and time -- Explicit representation
 
-This CalConnect Standard Document ("`CSD`") is written in pure AsciiDoc using the excellent
-https://github.com/riboseinc/asciidoctor-csd[`asciidoctor-csd` gem]. The latest
-draft of this is available through your CalConnect membership.
+This work item belongs to TC DATETIME.
 
-The CSD model is defined here: https://github.com/riboseinc/csd
+image:https://travis-ci.com/CalConnect/csd-datetime-explicit.svg?branch=master["Build Status", link="https://travis-ci.com/CalConnect/csd-datetime-explicit"]
+
+This document is available in its rendered forms here:
+
+* https://calconnect.github.io/csd-datetime-explicit/[CalConnect Calendar operator practices -- Guidelines to protect against calendar abuse (HTML)]
+* https://calconnect.github.io/csd-datetime-explicit/csd-datetime-explicit.pdf[PDF]
+* https://calconnect.github.io/csd-datetime-explicit/csd-datetime-explicit.xml[Metanorma XML]
+* https://calconnect.github.io/csd-datetime-explicit/csd-datetime-explicit.rxl[Relaton XML (Bibliographic item)]
+
+Because of all this, there is no need to build the document on your own, but if you wish to do so, this is how it can be done:
 
 == Fetching the document
 
 [source,sh]
 ----
-git clone https://github.com/calconnect/TC-CALSPAM/
+git clone https://gitlab.com/calconnect/csd-datetime-explicit/
 ----
 
 == Installing Build Tools
 
-You will need Ruby.
+See https://www.metanorma.com/overview/getting-started/
 
-=== On macOS
+
+== Running via Docker or locally
+
+If you have installed the build tools locally, and wish to run the
+locally-installed compilation tools, there is nothing further to set.
+
+If you don't want to deal with local dependencies, use the docker
+version by:
 
 [source,sh]
 ----
-cd BP_workingdraft
-gem install bundler
-bundle install
+export METANORMA_DOCKER=1
 ----
+
+The `Makefile` will automatically choose the proper command to
+execute.
+
 
 == Building The Document
 
@@ -38,17 +51,19 @@ bundle install
 make clean all
 ----
 
-The following formats will be built:
+The following outputs will be built:
 
-* CSD HTML (`[filename].html`)
-* CSD XML (https://github.com/riboseinc/csd) (`[filename].xml`)
+* CSD XML (https://github.com/calconnect/metanorma-model-csd) (`[filename].xml`)
+* HTML (`[filename].html`)
+* PDF (`[filename].pdf`)
+* Word DOC (`[filename].doc`)
+
 
 == Iterating the document
 
 [source,sh]
 ----
-make clean all
+make html
 open csd-*.html
 ----
-
 

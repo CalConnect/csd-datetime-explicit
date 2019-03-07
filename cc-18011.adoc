@@ -5,10 +5,10 @@
 :doctype: standard
 :edition: 1
 :copyright-year: 2018
-:revdate: 2018-09-10T00:00:00Z
-:published-date: 2018-09-10T00:00:00Z
+:revdate: 2018-02-10T00:00:00Z
+:published-date: 2018-02-10T00:00:00Z
 :language: en
-:technical-committee: VCARD, CALENDAR
+:technical-committee: DATETIME
 :draft:
 :toc:
 :stem:
