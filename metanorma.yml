@@ -1,0 +1,8 @@
+---
+metanorma:
+  deploy:
+    email: "ci@metanorma.org"
+relaton:
+  collection:
+    name: TC-DATETIME
+    organization: CalConnect
