@@ -1,18 +1,14 @@
 = CalConnect Standard: Date and time -- Explicit representation
 :title: Date and time -- Explicit representation
 :docnumber: 18011
-:status: final-draft
+:status: published
 :doctype: standard
 :edition: 1
 :copyright-year: 2018
-:revdate: 2018-02-10T00:00:00Z
-:published-date: 2018-02-10T00:00:00Z
+:revdate: 2018-09-18
+:published-date: 2018-09-18
 :language: en
 :technical-committee: DATETIME
-:draft:
-:toc:
-:stem:
-:xrefstyle: short
 :imagesdir: images
 :docfile: cc-18011.adoc
 :mn-document-class: csd

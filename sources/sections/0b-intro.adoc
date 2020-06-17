@@ -1,6 +1,4 @@
-[[introduction]]
-:sectnums!:
-== Introduction
+[[introduction]]== Introduction
 
 <<ISO8601>> has been the international standard for date and time representations
 and is applied widely, including in the <<RFC5545>> and <<RFC6350>> standards.

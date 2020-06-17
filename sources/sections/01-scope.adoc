@@ -1,5 +1,3 @@
-
-:sectnums:
 [[scope]]
 == Scope
 
